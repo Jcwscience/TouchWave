@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=66"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "touchwave"
+version = "0.1.0"
+description = "A modular touchscreen SDR receiver for Linux handhelds"
+requires-python = ">=3.11"
+dependencies = ["Kivy>=2.3,<3", "numpy>=1.24", "pyzmq>=24"]
+
+[project.scripts]
+touchwave = "touchwave.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["touchwave*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+"touchwave.ui" = ["assets/*.svg"]
